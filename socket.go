@@ -32,7 +32,7 @@ type Socket interface {
 type socket struct {
 	socketFile string
 
-	cancel context.CancelFunc
+	cancel context.CancelFunc // 是不是要加锁保护一下??
 	quit   chan interface{}
 
 	sendChan chan interface{}
