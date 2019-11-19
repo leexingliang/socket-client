@@ -42,7 +42,8 @@ func NewAdaptorWithSocket(sock Socket, timeout int, processcb PreProcessCallback
 	}
 }
 
-func (a *Adaptor) request(action interface{}) (interface{}, error) {
+// Request 请求
+func (a *Adaptor) Request(action interface{}) (interface{}, error) {
 	a.lock.Lock()
 	defer a.lock.Unlock()
 	timeout := time.NewTimer(time.Duration(a.timeout) * time.Second)
